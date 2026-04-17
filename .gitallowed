@@ -1,4 +1,4 @@
-# Allow pattern documentation in CLAUDE.md and settings
+# Allow pattern documentation in CLAUDE.md and workflows
 Private keys:.*PRIVATE KEY
 Bearer tokens:.*Bearer
 AWS:.*AKIA
@@ -9,3 +9,7 @@ Google:.*AIza
 Slack:.*xoxb-
 Stripe:.*sk_live_
 -----BEGIN.*PRIVATE KEY
+BEGIN \* PRIVATE KEY
+Bearer \[string\]
+Bearer \[token\]
+raw.githubusercontent.com
