@@ -1,0 +1,11 @@
+# Allow pattern documentation in CLAUDE.md and settings
+Private keys:.*PRIVATE KEY
+Bearer tokens:.*Bearer
+AWS:.*AKIA
+GitHub:.*ghp_
+Anthropic:.*sk-ant-
+OpenAI:.*sk-proj-
+Google:.*AIza
+Slack:.*xoxb-
+Stripe:.*sk_live_
+-----BEGIN.*PRIVATE KEY

@@ -1,0 +1,32 @@
+name: Sync Security Configs
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'    # Every Monday 9am UTC
+  workflow_dispatch:        # Manual trigger anytime
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Pull latest security configs
+        run: |
+          BASE="https://raw.githubusercontent.com/YOUR-ORG/security-configs/main"
+          mkdir -p .claude
+          curl -sf $BASE/CLAUDE.md -o CLAUDE.md
+          curl -sf $BASE/.claude/settings.json -o .claude/settings.json
+          curl -sf $BASE/.gitallowed -o .gitallowed
+
+      - name: Commit and push if changed
+        run: |
+          git config user.email "security-bot@yourorg.com"
+          git config user.name "Security Bot"
+          git add CLAUDE.md .claude/settings.json .gitallowed
+          git diff --cached --quiet && echo "✅ Already up to date" && exit 0
+          git commit -m "chore: sync security configs"
+          git push
