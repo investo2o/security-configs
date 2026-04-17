@@ -8,7 +8,7 @@ git secrets --register-aws
 git secrets --install -f
 
 # Pull latest patterns from security-configs
-PATTERNS_URL="https://raw.githubusercontent.com/YOUR-ORG/security-configs/main/git-secrets-patterns.txt"
+PATTERNS_URL="https://raw.githubusercontent.com/investo2o/security-configs/main/git-secrets-patterns.txt"
 
 git config --unset-all secrets.patterns 2>/dev/null || true
 
